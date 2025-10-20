@@ -3,7 +3,6 @@ import { MiniMaple } from "./miniMaple.js";
 document.addEventListener('DOMContentLoaded',setup)
 
 function setup() {
-    window.symbolicDiff = symbolicDiff;
     document.getElementById('diffBtn').addEventListener('click', () => {
         const expr = document.getElementById('expression').value;
         const variable = document.getElementById('variable').value;

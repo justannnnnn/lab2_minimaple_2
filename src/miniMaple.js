@@ -72,21 +72,21 @@ class MiniMaple{
         let constantSum = 0; // сумма констант, полученных при дифф-нии
 
         for (let term of terms) {
-            const parsed = parseTerm(term);
+            const parsed = this.parseTerm(term);
 
             if (!parsed) {
                 if (term.includes(variable)) throw new Error("Формат слагаемого неверный: " + term);
                 continue; // константа
             }
 
-            const diffTerm = differentiateTerm(parsed, variable);
+            const diffTerm = this.differentiateTerm(parsed, variable);
             if (!diffTerm) continue; // константа
 
-            constantSum = addTermToMap(diffMap, constantSum, diffTerm); // если получили константу, то обновляем ее значение
+            constantSum = this.addTermToMap(diffMap, constantSum, diffTerm); // если получили константу, то обновляем ее значение
             // или в самой функции наполняем словарь
         }
 
-        return formatResult(diffMap, constantSum);
+        return this.formatResult(diffMap, constantSum);
     }
 }
 

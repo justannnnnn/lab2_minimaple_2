@@ -1,14 +1,18 @@
+import { MiniMaple } from "./miniMaple.js";
+
 document.addEventListener('DOMContentLoaded',setup)
 
 function setup() {
-    document.getElementById('demoButton').onclick = addSomething;
-}
-
-function addSomething(){
-    const someDummyDiv = document.createElement('div');
-    someDummyDiv.classList.add('generated');
-    const count = document.getElementsByClassName('generated').length;
-    someDummyDiv.innerHTML = `I was created by JS! There are already ${count} of my friends!`;
-    const container = document.getElementById('container');
-    container.appendChild(someDummyDiv);
+    window.symbolicDiff = symbolicDiff;
+    document.getElementById('diffBtn').addEventListener('click', () => {
+        const expr = document.getElementById('expression').value;
+        const variable = document.getElementById('variable').value;
+        const mm = new MiniMaple();
+        try {
+            const result = mm.symbolicDiff(expr, variable);
+            document.getElementById('result').innerText = result;
+        } catch (err) {
+            document.getElementById('result').innerText = 'Ошибка: ' + err.message;
+        }
+    });
 }

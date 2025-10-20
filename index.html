@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lesson 4</title>
+    <title>Diff</title>
     <meta charset="UTF-8"/>
 
     <script src="src/index.js" type="module"></script>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        input, button { margin: 5px 0; padding: 5px; font-size: 16px; }
+        #result, #testResults { margin-top: 10px; font-weight: bold; }
+        .passed { color: green; }
+        .failed { color: red; }
+  </style>
 </head>
 
 <body>
-<h1>Implement the symbolic diff here</h1>
-<div id="container">
 
-</div>
-<div>
-    <button id="demoButton">
-        Add something
-    </button>
-</div>
+<h2>Дифференцирование</h2>
+
+<label>Выражение:</label><br>
+<input type="text" id="expression" placeholder="e.g. 4*x^3 - x^2"><br>
+
+<label>По переменной:</label><br>
+<input type="text" id="variable" placeholder="e.g. x"><br>
+
+<button id="diffBtn">Вычислить</button>
+
+<div id="result"></div>
+<div id="testResults"></div>
+
 </body>
 </html>
